@@ -1,0 +1,382 @@
+Javascript-Is a scripting language that adds functionality to the webpage.
+1) Its a dynamically typed language.No need of type casting.We need no data type.Need only variable type.
+2)It is an Interpreted language.It is having line by line execution.no need of seperate compiler.Interpretation happens 
+during runtime.
+3)Its a client side as well as server side scripting language.
+4)It is a weakly typed language.
+5)All errors are runtime bcs it doesnt compile initially.
+6)Loosely Typed language.-No need to add semicolon and all.It will not give any error.even if we add semicolon it 
+will work.It doesnot have strict checking.We can give strings in double quotes or single quotes.Its not a problem.
+
+
+
+#Ways to implement JavaScript
+Internal Javascript- Implements Javascript in HTML script.<script> </script>.
+External Javascript- Use external Javascript file.<script src="filename.js"></script>.
+
+#Environments where we execute Javascript code
+1)Node 2)Browser
+How to execute in Command prompt-node filename.js.
+
+#Variable declaration Types
+a)var b)let c)const
+var age;
+let Salary;
+const Name;
+console.log(age);
+console.log(Salary);
+console.log(Name);//error
+var-declaration alone is possible.It will throw Undefined incase of no initialization.Redeclaration possible.Reinitialization possible.
+let-declaration alone possible.Redeclaration not possible.Reinitialization possible.
+const-Need declaration and Initialization.Redeclaration not possible bcs const is constant.Reinitialization not possible.
+#Now a days we dont prefer var.If we want to change value-we use let.If we want it to be constant,we use const.
+var can be redeclared and reinitialized .Hence it may cause problem during debugging.Which was rectified with let.let cannot be reclared but reassigned.
+
+##scope of Variable declaration Types-execuion context that determines accessibility and availibilty of varibales.
+var-global let-local(cannot be accessed outside the block where its declared.) const-local(cannot be accessed outside the block) 
+
+#Hoisting-The process by which variables,declarations and functions moved to the tope of container before executing code.
+
+
+
+
+
+
+
+
+
+
+
+
+#String-It is a collection of characters enclosed within single quotes,double quotes,and backticks.
+let city1 = "Bangalore";
+let city2 = 'Cochin';
+let city3 = "Chennai";
+
+console.log(typeof city1);
+console.log(typeof city2);
+console.log(typeof city3);
+
+#Any Numerical value in JS is considered as Number
+let age = 25;
+let price = 25.50;
+console.log(typeof age);
+console.log(typeof price);
+
+#Bolean any value that is true /false
+
+let a1 = true;
+let a2 = false;
+
+console.log(a1+":"+typeof(a1));
+console.log(a2+":"+typeof(a2));
+console.log(10 > 5);
+
+//null- intentional absence of value-if their is no data,but we have to give some value.Developer assigns it.
+//undefinde- unintentional absence of value.It is not an error.It is a data type.It is assigned by Javascript.
+
+let stock1 = null;
+let stock2;
+console.log(stock1);
+console.log(stock2);
+
+// Bigint -represents the numerical values that exceeds the limit of Numbers-It is not much used in modern applications.
+let stock3 = 100n;
+let stock4 = 1000n;
+console.log(stock3+":"+ typeof(stock3));
+console.log(stock4+":"+ typeof(stock4));
+
+//* Symbol gives unique id to a value
+let stock5 = Symbol("Arun");
+let stock6 = Symbol("Arun");
+console.log(stock5 == stock6);// result is false
+
+stock5 = "Arun";
+stock6 = "Arun";
+console.log(stock5 == stock6);// result is true
+
+// premitive data types in JavaScript- String,Number,Boolean,null,Undefined,bigint,Symbol.
+
+
+//* Type Coercion-Implicit conversion- Process of converting one data type to another by the engine itself.
+// String+any other type is String
+//number + boolean= number.
+//number + undefined= Nan.Nan-Not a number.
+//number+ null= number.
+/* Be careful not to generalize the rule to every operation. The rule "if one operand is a string, the result is a string" applies specifically to the + operator, because + can mean either addition or string concatenation.
+
+Other operators (-, *, /, %) do not concatenate strings. Instead, they try to convert operands to numbers:
+
+console.log("10" - 5); // 5
+console.log("10" * 2); // 20
+console.log("10" / 2); // 5
+console.log("10" + 5); // "105" 
+
+This distinction is another common JavaScript interview topic.*/
+let agePerson = 45;//type- number
+let name = "Rohit";//type-String
+let res = agePerson+name;//type becomes String.here we are not converting res to String.JS Engine does itself.
+console.log(res);
+
+let active = true;
+res = agePerson+active;
+console.log(res);
+console.log(typeof(res));// anything that gets added to String is string.If add boolean with number result is number.
+
+//* Typeconversion-Process of converting data from one type to another.
+// Explicit Type conversion- Converting the type of data by developer.
+
+/*
+JavaScript type conversion is the process of changing a value from one data type to another. It can happen **automatically (implicit conversion)** or **manually (explicit conversion)**.
+
+## 1. Implicit Type Conversion (Type Coercion)
+
+JavaScript automatically converts one data type to another when needed.
+
+### Examples
+
+```javascript
+let result = "5" + 2;
+console.log(result); // "52" (Number converted to String)
+```
+
+```javascript
+let result = "5" - 2;
+console.log(result); // 3 (String converted to Number)
+```
+
+```javascript
+console.log(true + 1); // 2
+// true is converted to 1
+```
+
+```javascript
+console.log(false + 5); // 5
+// false is converted to 0
+```
+
+```javascript
+console.log(null + 1); // 1
+// null becomes 0
+```
+
+```javascript
+console.log(undefined + 1); // NaN
+```
+
+---
+
+## 2. Explicit Type Conversion
+
+The programmer manually converts data types using built-in functions.
+
+### a) Convert to Number
+
+Use `Number()`, `parseInt()`, or `parseFloat()`.
+
+```javascript
+Number("123");      // 123
+Number("123.45");   // 123.45
+Number(true);       // 1
+Number(false);      // 0
+Number(null);       // 0
+Number("abc");      // NaN
+
+parseInt("25px");   // 25
+parseFloat("3.14"); // 3.14
+```
+
+---
+
+### b) Convert to String
+
+Use `String()` or `.toString()`.
+
+```javascript
+String(123);      // "123"
+String(true);     // "true"
+
+(123).toString(); // "123"
+```
+
+---
+
+### c) Convert to Boolean
+
+Use `Boolean()`.
+
+```javascript
+Boolean(1);        // true
+Boolean(0);        // false
+Boolean("");       // false
+Boolean("Hello");  // true
+Boolean(null);     // false
+Boolean(undefined);// false
+Boolean(NaN);      // false
+```
+
+---
+
+## Common Conversion Rules
+
+| Original Value | Number | String        | Boolean |
+| -------------- | ------ | ------------- | ------- |
+| `"123"`        | 123    | `"123"`       | true    |
+| `""`           | 0      | `""`          | false   |
+| `true`         | 1      | `"true"`      | true    |
+| `false`        | 0      | `"false"`     | false   |
+| `null`         | 0      | `"null"`      | false   |
+| `undefined`    | NaN    | `"undefined"` | false   |
+| `NaN`          | NaN    | `"NaN"`       | false   |
+
+---
+
+## Equality and Type Conversion
+
+### Loose Equality (`==`)
+
+Performs type conversion before comparison.
+
+```javascript
+5 == "5";     // true
+true == 1;    // true
+null == undefined; // true
+```
+
+### Strict Equality (`===`)
+
+No type conversion; both value and type must match.
+
+```javascript
+5 === "5";    // false
+5 === 5;      // true
+```
+
+---
+
+## Examples
+
+```javascript
+console.log("10" + 5);     // "105"
+console.log("10" - 5);     // 5
+console.log("10" * 5);     // 50
+console.log("10" / 2);     // 5
+console.log(Boolean(""));  // false
+console.log(Number("20")); // 20
+```
+
+## Key Points
+
+* **Implicit conversion (coercion)** happens automatically during operations.
+* **Explicit conversion** is performed using `Number()`, `String()`, and `Boolean()`.
+* The `+` operator concatenates strings if either operand is a string.
+* Arithmetic operators (`-`, `*`, `/`, `%`) generally convert operands to numbers.
+* Prefer **strict equality (`===`)** over loose equality (`==`) to avoid unexpected type conversions.
+*/
+
+//operators
+//Operators are predefined symbols that are used to perform a specific task
+//Arithmetic Opertaors-Used to perform arithmetic operations.-+,-,*,/,%
+//Relational /conditional/comparison operators-compares the values of datatypes-<,>,<=,>=,==,===,!=
+//Logical operators- &&,||,!
+//Assignment operators-used to assign the values-  =,++,--,+=,-=,*=,/=
+//Ternary operator- Its the shorthand to write if else logic.
+
+let n1 =20;
+let n2 =2;
+
+console.log(n1+n2);
+console.log(n1-n2);
+console.log(n1*n2);
+console.log(n1/n2);
+console.log(n1%n2);
+console.log("------------------");
+
+console.log(n1>n2);//true
+console.log(n1<n2);//true
+console.log(n1<=n2);//false
+console.log(n1>=n2);//true
+console.log("------------------");
+
+//* == vs ====
+//==  loose equality check- It check value.Doesnot check datatype.
+//Falsy values-false,0,0n,-0,"".null,undefined,nan 
+
+console.log(10 == 10);//true
+console.log(10 == "10");//true
+console.log(true == "true");//"true" gets converted to Nan due to type coersion.hence //false.
+console.log(0 == false);//true bcs 0 is a falsy value.
+console.log(null == true);//false--null is not getting coersed.
+console.log(null == false);//false -System cannot convert null to false.ie-0.Hence result as false.(bcs null cannot be coersed to Not having a value.).
+console.log("------------------");
+//=== - it is strict equality check.It will compare the values along with the data types.
+console.log(1 == "1");//true
+console.log(1 === "1");//false
+console.log(false == 0)//true
+console.log(false === 0)//false Even the values are same,datatypes are differrent.
+console.log(-0 == "false");
+console.log(-0 === "false");
+console.log( "" == "false");
+console.log("" === "false");
+console.log(false == "false");
+console.log(false === "false");
+console.log(undefined == "false");
+console.log(undefined === "false");
+console.log(NaN =="false");
+console.log(NaN=== "false");
+console.log("------------------");
+console.log(-0 == false);//ture
+console.log(-0 === false);//false
+console.log(0 == false);//true
+console.log(0 === false);//false
+console.log("" == false);//true
+console.log("" === false);//false
+console.log(undefined == false);//false
+console.log(undefined === false);//false
+console.log(NaN == false);//false
+console.log(NaN === false);//false
+console.log("------------------");
+
+//*condition operators
+// age- 25-30
+//&&- and operator : both the condition should be satisfied
+let age =27;
+console.log(25<=age && age<=30);//true
+console.log(25<=age && age>=30);//false
+console.log(25>=age && age<=30);//false
+console.log(25>=age && age>=30);//false
+//|| or operator-atleast one condition should be satisfied.
+console.log(25<=age || age<=30);//true
+console.log(25<=age || age>=30);//true
+console.log(25>=age || age<=30);//true
+console.log(25>=age || age>=30);//false
+//!
+let a =true;
+let b=false;
+console.log(!a);//false
+console.log(!b);//true
+console.log("-----------------------");
+
+//Assignment operators
+let n3 = 10;
+n3++;
+console.log(n3);//11
+n3--;
+console.log(n3);//10
+n3 += 5;
+console.log(n3);//15
+n3 -= 5;
+console.log(n3);//10
+
+let n4=20;
+let c =n4++;//first uses the value and then increments.(Post increment).
+console.log(c);//20
+console.log(n4);//21
+
+let n5 =20;
+let d= ++n5;//first increments the value and then uses it.(Pre increment).
+console.log(d);//21
+console.log(n5);//21
+
+//Ternary operatior
+console.log(age>=30? "Person is Old":"Person is Young");
